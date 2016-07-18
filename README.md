@@ -1,7 +1,6 @@
 # LoggerLager
 
-A `lager` (https://github.com/basho/lager) backend for Elixir's `Logger`
-(http://elixir-lang.org/docs/master/logger/Logger.html).
+A [`lager`](https://github.com/basho/lager) backend for Elixir's [`Logger`](http://elixir-lang.org/docs/master/logger/Logger.html).
 
 Forked from [Jonathan's library](https://github.com/jonathanperret/logger_lager_backend).
 
