@@ -1,4 +1,4 @@
-defmodule LoggerLagerBackendTest do
+defmodule LoggerLagerTest do
   use ExUnit.Case
   require Logger
 

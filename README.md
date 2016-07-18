@@ -1,7 +1,9 @@
-# LoggerLagerBackend
+# LoggerLager
 
 A `lager` (https://github.com/basho/lager) backend for Elixir's `Logger`
 (http://elixir-lang.org/docs/master/logger/Logger.html).
+
+Forked from [Jonathan's library](https://github.com/jonathanperret/logger_lager_backend).
 
 That is, it routes messages generated with `Logger.<level>()` to `lager`. This
 is useful if you have a mixed Erlang/Elixir project and have decided to
@@ -20,21 +22,21 @@ Known limitations:
 
 ## Installation
 
-Add `logger_lager_backend` to your list of dependencies in `mix.exs`:
+Add `logger_lager` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
-  [{:logger_lager_backend, "~> 0.0.2"}]
+  [{:logger_lager, "~> 0.1.0"}]
 end
 ```
 
 ## Configuration
 
-Instruct `Logger` to use `logger_lager_backend`:
+Instruct `Logger` to use `logger_lager`:
 
 ```elixir
 config :logger,
-  backends: [LoggerLagerBackend],
+  backends: [LoggerLager],
   level: :debug
 ```
 

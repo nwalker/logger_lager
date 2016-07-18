@@ -1,4 +1,4 @@
-defmodule LoggerLagerBackend do
+defmodule LoggerLager do
   use GenEvent
 
   @moduledoc """
