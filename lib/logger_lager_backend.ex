@@ -19,7 +19,7 @@ defmodule LoggerLager do
   def handle_event({_level, gl, _event}, state) when node(gl) != node() do
     {:ok, state}
   end
-  def handle_event({level, _gl, {Logger, message, timestamp, metadata}}, state) do
+  def handle_event({level, _gl, {Logger, message, _timestamp, metadata}}, state) do
     :lager.dispatch_log(@sink, to_lager_level(level), format_metadata(metadata),
       '~ts', [message], @truncation_size, :safe)
     {:ok, state}
