@@ -24,6 +24,6 @@ defmodule LoggerLager.Mixfile do
   end
 
   defp deps do
-    [{:lager, "~> 3.2.1", only: :test}]
+    [{:lager, "~> 3.2.1", optional: true}]
   end
 end
