@@ -29,13 +29,14 @@ defmodule LoggerLager do
   defp to_lager_level(level), do: level
 
   defp format_metadata(md) do
-    Enum.map(md, fn({key, val}) ->
-      {key, [to_string(key), ?=, format_metadata_value(val), ?\s]}
+    Enum.reduce(md, [], fn
+      ({:file, _}, acc) -> acc
+      ({key, val}, acc) -> [{key, format_metadata_value(val)} | acc]
     end)
   end
 
   defp format_metadata_value(pid) when is_pid(pid) do
-    :erlang.pid_to_list(pid)
+    :erlang.pid_to_list pid
   end
   defp format_metadata_value(ref) when is_reference(ref) do
     '#Ref' ++ rest = :erlang.ref_to_list(ref)
@@ -44,9 +45,8 @@ defmodule LoggerLager do
   defp format_metadata_value(atom) when is_atom(atom) do
     case Atom.to_string(atom) do
       "Elixir." <> rest -> rest
-      "nil" -> ""
       binary -> binary
     end
   end
-  defp format_metadata_value(other), do: to_string(other)
+  defp format_metadata_value(other), do: other
 end
